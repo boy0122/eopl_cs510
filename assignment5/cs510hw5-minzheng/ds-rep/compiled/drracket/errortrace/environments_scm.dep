@@ -1,0 +1,1 @@
+("6.1.1" ("a850d24252b42ff5f0449639610522059bdb59c7" . "eb904f229bcf0a658ba1099fdef14bbdc94168c6") #"/Users/minzheng/AquariusMin/subjectsource-SIT/CS510-PL/assignment/assignment5/proc-lang/ds-rep/data-structures.scm" (collects #"eopl" #"main.rkt") (collects #"eopl" #"lang" #"reader.rkt"))

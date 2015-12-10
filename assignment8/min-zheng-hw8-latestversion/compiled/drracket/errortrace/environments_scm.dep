@@ -1,0 +1,1 @@
+("6.1.1" ("172a19deafc174ad92581fbd3985e62536275330" . "7b8373fb0cd39e8f0b5eceae1a4dcaf9e392c717") #"/Users/minzheng/Downloads/min-zheng-hw8/store.scm" (collects #"eopl" #"main.rkt") #"/Users/minzheng/Downloads/min-zheng-hw8/data-structures.scm" (collects #"eopl" #"lang" #"reader.rkt"))

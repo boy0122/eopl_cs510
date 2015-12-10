@@ -1,0 +1,1 @@
+("6.1.1" ("172a19deafc174ad92581fbd3985e62536275330" . "7ff950d7c1ded41c97a789e96b5731e40331cf7c") #"/Users/minzheng/Desktop/implicit-refs-mulitple-arguments/data-structures.scm" (collects #"eopl" #"main.rkt") #"/Users/minzheng/Desktop/implicit-refs-mulitple-arguments/store.scm" (collects #"eopl" #"lang" #"reader.rkt"))

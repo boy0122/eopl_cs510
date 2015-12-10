@@ -1,0 +1,187 @@
+Homework 5  min zheng
+I pledge my honor that I have abided by the stevens honor system.
+
+1 The complete calculation for (value-of <<let x  = 2 in if zero?(x) then 3 else let y = 4 in let x = 5 in -(x,y)>> rho)
+
+(value-of <<let x =2 in if zero?(x) then 3 else let y = 4 in let x = 5 in -(x,y)>> rho)
+
+=(value-of << if zero?(x) then 3 else let y = 4 in let x = 5 in -(x,y) [x=2] rho)
+
+=(<<if (expval-bool (value-of <<zero?(x)>> [x=2] rho))
+	(value-of <<3>> [x=2]) rho)
+	(value-of <<let y =4 in let x =5 in -(x,y)>> [x=2] rho)
+
+=(if #f 
+	(value-of  <<3>> [x=2]rho)
+	(value-of  <<let x =5 in -(x,y)>>)[y=4][x=2]rho )
+
+=(value-of << let x = 5 in -(x,y)>>[y=4][x=2]rho)
+
+=(value-of <<-(x,y)>> [x=5][y=4][x=2]rho)
+
+=1
+Exercise 3.20
+
+(define summation
+  let sum = proc (x) proc (y) -(x, -(0, y))
+       in ((sum 5) 20)
+
+Exercise 3.23
+complete calculation
+(value-of  <<let makemult = proc (maker)
+                   proc (x)
+                    if zero?(x)
+                    then 0
+                    else -(((maker maker) -(x, 1)), - 4))
+   in let times4 = proc (x) ((makemult makemult) x)
+      in (times4 3)>> rho)
+=(value-of <<let times4 = proc (x) ((makemult makemult) x)
+	in (times4 3)>> [makemult = (proc-val (procedure maker 
+					<<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) -4)))
+								
+							>> rho))])
+=(value-of <<times4 3>> [times4= (proc-val x <<((makemult makemult) x)>>rho)]
+			    [makemult = (proc-val (procedure maker 
+					<<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) -4)))
+								
+							>> rho))])
+=(apply-procedure
+(procedure x <<((makemult makemult) x)>>rho[makemult = (proc-val (procedure maker 
+					<<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) -4)))
+								
+							>> rho))])[ 4 ])
+=((apply-procedure (procedure maker <<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) ,-4)))
+								
+							>>rho)[4])
+(apply-procedure (procedure maker <<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) ,4)))
+								
+							>>rho)[4])
+) x)
+=(apply-procedure (procedure x << if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) -(0,4)))>>[x=3][maker=mult] rho1) )
+
+=(if (expval->bool (value-of <<zero? (x)>>rho2))
+	(value-of <<0>> rho2)
+	(value-of << -(((maker maker) - (x,1) ,-4)))>>rho2))
+
+
+=(if #f
+	(value-of << -(((maker maker) - (x,1) ,-4)))>>rho2)))
+
+=(-
+(value-of <<((maker maker) -(x,1)>>rho3 [maker=makemult][x=3])
+(value-of<<-4>>rho3[maker=makemult][x=3]))
+
+=(-
+(applyg-procedure (procedure maker <<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) ,-4))))))>>rho4[maker=makemult][x=2])
+(value-of<<-4>>rho4[maker=makemult][x=2]))
+
+=(-
+((if #f
+	(value-of << -(((maker maker) - (x,1) ,-4)))>>rho4[maker=makemult][x=2])))))
+
+(value-of<<-4>>rho4[maker=makemult][x=2]))
+)
+=(-
+((value-of <<((maker maker) -(x,1)>>rho4 [maker=makemult][x=2])
+(value-of<<-4>>rho4[maker=makemult][x=2])))
+
+(value-of<<-4>>rho3[maker=makemult][x=3]))
+
+=(-
+(-(
+(applyg-procedure (procedure maker <<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) ,-4))))))>>rho5[maker=makemult][x=1])
+)
+(value-of<<-4>>rho4[maker=makemult][x=2])))
+
+(value-of<<-4>>rho3[maker=makemult][x=3]))
+
+=(-
+(-(
+-((applyg-procedure (procedure maker <<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) ,-4))))))>>rho5[maker=makemult][x=1]))
+(value-of<<-4>>rho4[maker=makemult][x=2])))
+)
+(value-of<<-4>>rho4[maker=makemult][x=2])))
+
+(value-of<<-4>>rho3[maker=makemult][x=3]))
+=(-
+(-(
+-(((if #f
+	(value-of << -(((maker maker) - (x,1) ,-4)))>>rho5[maker=makemult][x=1])))))
+
+(value-of<<-4>>rho5[maker=makemult][x=1]))
+
+)
+(value-of<<-4>>rho4[maker=makemult][x=2])))
+
+(value-of<<-4>>rho3[maker=makemult][x=3]))
+=(-
+-(
+-((applyg-procedure (procedure maker <<proc(x)
+					    if zero? (x)
+					     then 0
+						else -(((maker maker) - (x,1) ,-4))))))>>rho6[maker=makemult][x=0])
+
+(value-of<<-4>>rho5[maker=makemult][x=1]))
+
+(value-of<<-4>>rho4[maker=makemult][x=2])))
+
+(value-of<<-4>>rho3[maker=makemult][x=3]))
+
+=(-
+(-
+(-  0 (value-of<<-4>>rho5[maker=makemult][x=1]))
+(value-of<<-4>>rho4[maker=makemult][x=2]))
+(value-of<<-4>>rho3[maker=makemult][x=3])))))
+=(-
+(-  4
+(value-of<<-4>>rho4[maker=makemult][x=2]))
+(value-of<<-4>>rho3[maker=makemult][x=3])))))
+=(- 8
+(value-of<<-4>>rho3[maker=makemult][x=3]))))
+=12
+
+Factorial procedure
+
+let makemult = proc (maker)
+                   proc (x)
+                    proc (z)
+                     if zero?(z)
+                     then 0
+                     else -((((maker maker) x) -(z, 1)), -x))
+   in let level = proc (x)
+                   proc (z)
+                    (((makemult makemult) x) z)
+      in let makedeep = proc (deep)
+                         proc (n)
+                          if zero?(n)
+                          then 1
+                          else ((level n) ((deep deep) -(n, 1)))
+         in let factorianum = proc (n)
+                             ((makedeep makedeep) n)
+            in (factorianum 4)

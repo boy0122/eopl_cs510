@@ -1,0 +1,1 @@
+("6.1.1" ("dd8817ba41a45991160fc5c8b6f7b146a635354e" . "65c1957543cac6ea00284092bcad9199a91ea3d6") (collects #"eopl" #"main.rkt") #"/Users/minzheng/AquariusMin/subjectsource-SIT/CS510-PL/assignment/assignment9/minzheng-hw9/checked/lang.scm" (collects #"eopl" #"lang" #"reader.rkt"))

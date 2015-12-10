@@ -1,0 +1,1 @@
+("6.1.1" ("dc9a8cd69878600f5207f00042ad7a7c82744ff8" . "20123e9d70c9cf1c24592a0d2436737cd0d28a6e") (collects #"eopl" #"main.rkt") #"/Users/minzheng/AquariusMin/subjectsource-SIT/CS510-PL/coursecode/let-lang/data-structures.scm" (collects #"eopl" #"lang" #"reader.rkt"))

@@ -1,0 +1,1 @@
+("6.1.1" ("65ae610b36819d9cb684963096140516db55b6aa" . "39cc2f3c0b628877c70feef36a5f1b85d5fcb538") #"/Users/minzheng/Desktop/checker/lang.scm" (collects #"eopl" #"main.rkt") (collects #"eopl" #"lang" #"reader.rkt"))
